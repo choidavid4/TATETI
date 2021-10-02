@@ -1,0 +1,119 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root{
+    --tamano-celda: 150px;
+    --tamano-figura: calc(var(--tamano-celda) * 0.80);
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.turno{
+    font-size: 3.5em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 100px;
+    position: fixed;
+    width: 100%;
+}
+
+.tablero{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, var(--tamano-celda));
+    grid-template-rows: repeat(3, var(--tamano-celda));
+    justify-content: center;
+    align-content: center;
+}
+
+.celda{
+    border: 7px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.celda:nth-child(1), .celda:nth-child(2), .celda:nth-child(3){
+    border-top: unset; 
+}
+
+.celda:nth-child(3n + 1){
+    border-left: unset; 
+}
+
+.celda:nth-child(7), .celda:nth-child(8), .celda:nth-child(9){
+    border-bottom: unset; 
+}
+
+.celda:nth-child(3n){
+    border-right: unset; 
+}
+
+.x{
+    background: url(equis.png) no-repeat center center;
+    background-size: contain;
+    width: var(--tamano-figura);
+    height: var(--tamano-figura);
+
+}
+
+.o{
+    background: url(circulo.png) no-repeat center center;
+    background-size: contain;
+    width: var(--tamano-figura);
+    height: var(--tamano-figura);
+}
+
+.figura.x, .figura.o{
+    cursor: not-allowed;
+}
+
+.fin-del-juego{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(203, 29, 242, 0.7);
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fin-del-juego p{
+    font-size: 4em;
+    font-weight: bold;
+    color: white;
+    padding: 25px;
+}
+
+.fin-del-juego button{
+    background-color: #4a0a59;
+    color: white;
+    font-size: 2em;
+    padding: 20px 50px;
+    margin: 25px 0px;
+    border: 4px solid #8816a6;
+}
+
+.fin-del-juego button:hover{
+    background-color: #8816a6;
+    border-color: #600e75;
+    color: white;
+}
+
+.mostrar-fin-del-juego{
+    display: flex;
+}
+
+
+
+
+
